@@ -1,4 +1,4 @@
--- -- EXAMPLE 
+-- -- EXAMPLE
 -- local on_attach = require("nvchad.configs.lspconfig").on_attach
 -- local on_init = require("nvchad.configs.lspconfig").on_init
 -- local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -104,9 +104,7 @@ local server_configs = {
   },
 
   php = {
-    phpactor = {
-      cmd = { "phpactor", "language-server", "-vvv" },
-    },
+    phpactor = {},
   },
 
   python = {
@@ -134,12 +132,12 @@ local server_configs = {
 }
 
 local configure = function(opts)
+  opts.on_init = on_init
+  opts.capabilities = capabilities
+
   if opts.on_attach == nil then
     opts.on_attach = on_attach
   end
-
-  opts.capabilities = capabilities
-  opts.on_init = on_init
 
   return opts
 end
