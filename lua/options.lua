@@ -1,13 +1,6 @@
 require "nvchad.options"
 require "helpers.load_filetypes_associations"
-
--- autocmd({ "BufAdd", "BufEnter", "tabnew" }, {
---   callback = function()
---     vim.t.bufs = vim.tbl_filter(function(bufnr)
---       return vim.api.nvim_buf_get_option(bufnr, "modified")
---     end, vim.t.bufs)
---   end,
--- })
+require "helpers.always_show_one_tab"
 
 vim.opt.colorcolumn = "120"
 
