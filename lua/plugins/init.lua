@@ -97,4 +97,12 @@ return {
     },
     config = require("configs.nvim-dap-ui").config,
   },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = require("configs.harpoon").config,
+  },
 }
