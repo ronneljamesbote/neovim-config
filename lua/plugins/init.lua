@@ -71,19 +71,6 @@ return {
   },
 
   {
-    "tpope/vim-dadbod",
-  },
-
-  {
-    "kristijanhusak/vim-dadbod-ui",
-    dependencies = {
-      "tpope/vim-dadbod",
-    },
-    cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
-    init = require("configs.vim-dadbod-ui").init,
-  },
-
-  {
     "mfussenegger/nvim-dap",
     init = require("configs.nvim-dap").init,
     config = require("configs.nvim-dap").config,
