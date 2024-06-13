@@ -2,7 +2,7 @@ return {
   config = function()
     vim.g.undotree_SetFocusWhenToggle = 1
 
-    vim.api.nvim_exec(
+    vim.api.nvim_exec2(
       [[
           if has("persistent_undo")
              let target_path = expand('~/.local/share/nvim/undodir')
@@ -17,7 +17,9 @@ return {
               set undofile
           endif
       ]],
-      false
+      {
+        output = false,
+      }
     )
   end,
 }
