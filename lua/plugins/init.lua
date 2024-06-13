@@ -68,6 +68,8 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = require("configs.trouble").opts,
+    cmd = require("configs.trouble").cmd,
+    keys = require("configs.trouble").keys,
   },
 
   {
