@@ -22,7 +22,7 @@ local required_installed = {
 
   php = {
     -- LSP
-    "phpactor",
+    "intelephense",
 
     -- Diagnostics
     "phpstan",
