@@ -29,9 +29,6 @@ local required_installed = {
 
     -- Formatters
     "pint",
-
-    -- Debuggers
-    "php-debug-adapter",
   },
 
   javascript = {
