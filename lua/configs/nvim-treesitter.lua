@@ -37,6 +37,8 @@ local ensure_installed = {
     "markdown_inline",
     "yaml",
     "vimdoc",
+    "norg",
+    "norg_meta",
   },
 }
 
