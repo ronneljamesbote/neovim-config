@@ -10,27 +10,7 @@ return {
     dependencies = { "luarocks.nvim" },
     lazy = false,
     version = "*",
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                default = "~/Documents/notes/neorg-notes/default",
-                projects = "~/Documents/notes/neorg-notes/projects",
-                later = "~/Documents/notes/neorg-notes/later",
-              },
-              default_workspace = "default",
-            },
-          },
-        },
-      }
-
-      vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
-    end,
+    config = require("configs.neorg").config,
   },
 
   {
