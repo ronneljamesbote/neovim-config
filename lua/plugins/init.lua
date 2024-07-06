@@ -29,10 +29,7 @@ return {
     dependencies = {
       "nvimtools/none-ls.nvim",
     },
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require("configs.lspconfig").config()
-    end,
+    config = require("configs.lspconfig").config,
   },
 
   {
@@ -73,6 +70,7 @@ return {
 
   {
     "nvim-tree/nvim-web-devicons",
+    config = true,
   },
 
   {
@@ -107,5 +105,10 @@ return {
     lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = require("configs.harpoon").config,
+  },
+
+  {
+    "github/copilot.vim",
+    lazy = false,
   },
 }

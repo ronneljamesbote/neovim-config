@@ -120,6 +120,8 @@ end
 
 return {
   config = function()
+    require("nvchad.configs.lspconfig").defaults()
+
     for _, language in pairs(server_configs) do
       for name, server in pairs(language) do
         local config = configure(server)
