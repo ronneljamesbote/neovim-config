@@ -109,8 +109,23 @@ return {
   },
 
   {
-    "github/copilot.vim",
-    lazy = false,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      }
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   },
 
   -- Override Nvchad default plugin configs
@@ -118,8 +133,10 @@ return {
     "hrsh7th/nvim-cmp",
     config = function(_, opts)
       local cmp = require "cmp"
+
       table.insert(opts, {
         sources = {
+          { name = "copilot" },
           { name = "neorg" },
         },
       })
