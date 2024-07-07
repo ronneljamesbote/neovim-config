@@ -1,4 +1,5 @@
 return {
+
   {
     "vhyrro/luarocks.nvim",
     priority = 1000,
@@ -110,5 +111,19 @@ return {
   {
     "github/copilot.vim",
     lazy = false,
+  },
+
+  -- Override Nvchad default plugin configs
+  {
+    "hrsh7th/nvim-cmp",
+    config = function(_, opts)
+      local cmp = require "cmp"
+      table.insert(opts, {
+        sources = {
+          { name = "neorg" },
+        },
+      })
+      cmp.setup(opts)
+    end,
   },
 }

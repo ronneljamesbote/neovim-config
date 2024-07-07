@@ -14,6 +14,12 @@ return {
             default_workspace = "default",
           },
         },
+        ["core.completion"] = {
+          config = {
+            engine = "nvim-cmp",
+          },
+        },
+        ["core.integrations.nvim-cmp"] = {},
       },
     }
 
