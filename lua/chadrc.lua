@@ -15,6 +15,9 @@ M.ui = {
       file = statusline_fullfileinfo,
     },
   },
+  tabufline = {
+    order = { "treeOffset" },
+  },
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
