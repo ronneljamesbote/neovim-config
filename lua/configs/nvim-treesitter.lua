@@ -9,6 +9,9 @@ local ensure_installed = {
   },
 
   languages = {
+    "c",
+    "vim",
+    "lua",
     "php",
     "javascript",
     "typescript",
@@ -16,8 +19,6 @@ local ensure_installed = {
     "go",
     "java",
     "rust",
-    "vim",
-    "lua",
     "sql",
   },
 
@@ -25,18 +26,15 @@ local ensure_installed = {
     "blade",
     "twig",
     "templ",
-  },
-
-  files = {
     "tsx",
     "vue",
   },
 
   others = {
+    "vimdoc",
+    "yaml",
     "markdown",
     "markdown_inline",
-    "yaml",
-    "vimdoc",
     "norg",
     "norg_meta",
   },
