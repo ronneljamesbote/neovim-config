@@ -3,6 +3,9 @@ return {
     "vhyrro/luarocks.nvim",
     priority = 1000,
     config = true,
+    opts = {
+      rocks = { "jsregexp" },
+    },
   },
 
   {
@@ -35,6 +38,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = require("configs.nvim-treesitter").opts,
+    lazy = false,
   },
 
   {
