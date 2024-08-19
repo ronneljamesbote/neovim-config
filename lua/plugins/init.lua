@@ -39,6 +39,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = require("configs.nvim-treesitter").opts,
     lazy = false,
+    commit = "24ddf60d68daa921d4e909d2b6c5b03ef6bce8ce",
   },
 
   {
