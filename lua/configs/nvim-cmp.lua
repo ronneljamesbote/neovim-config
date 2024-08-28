@@ -6,7 +6,7 @@ local function getModifiedSources(existingSources)
   end
 
   local newSources = {
-    { name = "copilot" },
+    -- { name = "copilot" },
     { name = "neorg" },
   }
 

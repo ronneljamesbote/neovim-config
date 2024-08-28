@@ -49,6 +49,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = require("configs.nvim-treesitter-textobjects").config,
+    commit = "ced6375723b20616282f9f6a1018a63ae19b106a",
   },
 
   {
@@ -112,22 +113,22 @@ return {
     config = require("configs.harpoon").config,
   },
 
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot-cmp" },
-    config = require("configs.copilot").config,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   dependencies = { "zbirenbaum/copilot-cmp" },
+  --   config = require("configs.copilot").config,
+  -- },
 
-  {
-    "zbirenbaum/copilot-cmp",
-    config = require("configs.copilot-cmp").config,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = require("configs.copilot-cmp").config,
+  -- },
 
   -- Override Nvchad default plugin configs
-  {
-    "hrsh7th/nvim-cmp",
-    config = require("configs.nvim-cmp").config,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   config = require("configs.nvim-cmp").config,
+  -- },
 }
