@@ -4,6 +4,7 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 
 nomap("n", "<leader>fm")
+nomap("n", "<tab>")
 
 local format_file = require "helpers.format_file"
 
