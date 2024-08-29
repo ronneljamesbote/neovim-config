@@ -1,6 +1,6 @@
 require "nvchad.options"
 require "helpers.load_filetypes_associations"
--- require "helpers.always_show_one_tab"
+require "helpers.always_show_one_tab"
 
 vim.opt.colorcolumn = "120"
 
