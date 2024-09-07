@@ -43,7 +43,7 @@ local server_configs = {
   },
 
   javascript = {
-    tsserver = {},
+    ts_ls = {},
     eslint = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "javascript", "typescript" },
       settings = {
