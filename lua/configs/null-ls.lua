@@ -22,10 +22,10 @@ return {
       },
 
       php = {
-        builtins.formatting.pint.with {
-          prefer_local = "vendor/bin",
-        },
-        builtins.diagnostics.phpstan,
+        -- builtins.formatting.pint.with {
+        --   prefer_local = "vendor/bin",
+        -- },
+        -- builtins.diagnostics.phpstan,
       },
 
       go = {
