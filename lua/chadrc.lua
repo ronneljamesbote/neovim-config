@@ -5,94 +5,104 @@ local statusline_fullfileinfo = require "helpers.statusline_fullfileinfo"
 local flatten_tables = require "helpers.flatten_tables"
 
 ---@type ChadrcConfig
-local M = {
-  ui = {
-    theme = "onedark",
-    transparency = true,
-    statusline = {
-      theme = "vscode_colored",
-      modules = {
-        file = statusline_fullfileinfo,
-      },
-    },
-    tabufline = {
-      order = { "treeOffset" },
-    },
-    hl_override = {
-      Comment = { italic = true },
-      ["@comment"] = { italic = true },
+local M = {}
+
+M.lsp = {
+  signature = true,
+}
+
+M.ui = {
+  tabufline = {
+    order = { "treeOffset" },
+  },
+  statusline = {
+    theme = "vscode_colored",
+  },
+}
+
+M.base46 = {
+  theme = "onedark",
+  transparency = true,
+  statusline = {
+    modules = {
+      file = statusline_fullfileinfo,
     },
   },
-  mason = {
-    pkgs = flatten_tables {
-      web = {
-        -- LSP
-        "css-lsp",
-        "html-lsp",
-        "emmet-ls",
-        "tailwindcss-language-server",
+  hl_override = {
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
+  },
+}
 
-        -- Formatters
-        "prettier",
-      },
+M.mason = {
+  pkgs = flatten_tables {
+    web = {
+      -- LSP
+      "css-lsp",
+      "html-lsp",
+      "emmet-ls",
+      "tailwindcss-language-server",
 
-      lua = {
-        -- LSP
-        "lua-language-server",
+      -- Formatters
+      "prettier",
+    },
 
-        -- Formatters
-        "stylua",
-      },
+    lua = {
+      -- LSP
+      "lua-language-server",
 
-      php = {
-        -- LSP
-        "intelephense",
+      -- Formatters
+      "stylua",
+    },
 
-        -- Diagnostics
-        "phpstan",
+    php = {
+      -- LSP
+      "intelephense",
 
-        -- Formatters
-        "pint",
-      },
+      -- Diagnostics
+      "phpstan",
 
-      javascript = {
-        -- LSP
-        "typescript-language-server",
+      -- Formatters
+      "pint",
+    },
 
-        -- Linters
-        "eslint-lsp",
-      },
+    javascript = {
+      -- LSP
+      "typescript-language-server",
 
-      go = {
-        -- LSP
-        "gopls",
+      -- Linters
+      "eslint-lsp",
+    },
 
-        -- Formatters
-        "gofumpt",
-        "goimports-reviser",
+    go = {
+      -- LSP
+      "gopls",
 
-        -- Debuggers
-        "delve",
+      -- Formatters
+      "gofumpt",
+      "goimports-reviser",
 
-        -- Templating
-        "templ",
-      },
+      -- Debuggers
+      "delve",
 
-      python = {
-        -- LSP
-        "pyright",
-        "ruff-lsp",
+      -- Templating
+      "templ",
+    },
 
-        -- Diagnostics
-        "black",
+    python = {
+      -- LSP
+      "pyright",
+      "ruff",
 
-        -- Linters
-        "mypy",
-      },
+      -- Diagnostics
+      "black",
 
-      extra = {
-        "marksman",
-      },
+      -- Linters
+      "mypy",
+    },
+
+    extra = {
+      "marksman",
     },
   },
 }
