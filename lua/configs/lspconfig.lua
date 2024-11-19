@@ -53,10 +53,10 @@ local server_configs = {
         },
       },
       on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
         client.server_capabilities.documentFormattingProvider = true
         client.server_capabilities.documentRangeFormattingProvider = true
+
+        on_attach(client, bufnr)
       end,
     },
   },
@@ -94,10 +94,10 @@ local server_configs = {
     },
     ruff_lsp = {
       on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
         -- Disable hover in favor of Pyright
         client.server_capabilities.hoverProvider = false
+
+        on_attach(client, bufnr)
       end,
     },
   },
