@@ -1,22 +1,5 @@
 return {
   {
-    "vhyrro/luarocks.nvim",
-    priority = 1000,
-    config = true,
-    opts = {
-      rocks = { "jsregexp" },
-    },
-  },
-
-  {
-    "nvim-neorg/neorg",
-    dependencies = { "luarocks.nvim" },
-    lazy = false,
-    version = "*",
-    config = require("configs.neorg").config,
-  },
-
-  {
     "williamboman/mason.nvim",
     opts = require("configs.mason").opts,
   },
