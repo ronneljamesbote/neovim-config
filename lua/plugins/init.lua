@@ -74,21 +74,6 @@ return {
   },
 
   {
-    "mfussenegger/nvim-dap",
-    init = require("configs.nvim-dap").init,
-    config = require("configs.nvim-dap").config,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-    },
-    config = require("configs.nvim-dap-ui").config,
-  },
-
-  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     lazy = false,

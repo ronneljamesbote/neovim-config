@@ -26,13 +26,3 @@ map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "TmuxNavigate move to w
 map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "TmuxNavigate move to window right" })
 map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { desc = "TmuxNavigate move to window down" })
 map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { desc = "TmuxNavigate move to window up" })
-
--- Debbuger hotkeys
-
-map("n", "<F5>", function()
-  require("dap").continue()
-end, { desc = "Start debugging session" })
-map("n", "<leader>Bb", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
-map("n", "<leader>Bg", function()
-  require("dapui").toggle()
-end, { desc = "Open debugger window" })

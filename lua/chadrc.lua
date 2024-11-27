@@ -82,9 +82,6 @@ M.mason = {
       "gofumpt",
       "goimports-reviser",
 
-      -- Debuggers
-      "delve",
-
       -- Templating
       "templ",
     },
