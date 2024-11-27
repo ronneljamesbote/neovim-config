@@ -6,8 +6,7 @@ local function getModifiedSources(existingSources)
   end
 
   local newSources = {
-    -- { name = "copilot" },
-    { name = "neorg" },
+    { name = "copilot" },
   }
 
   for _, v in pairs(newSources) do
