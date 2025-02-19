@@ -49,6 +49,7 @@ local server_configs = {
       },
     },
     eslint = {
+      root_dir = util.root_pattern ".git",
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "javascript", "typescript" },
       settings = {
         codeActionOnSave = {
