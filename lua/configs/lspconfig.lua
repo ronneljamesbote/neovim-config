@@ -43,7 +43,11 @@ local server_configs = {
   },
 
   javascript = {
-    ts_ls = {},
+    ts_ls = {
+      init_options = {
+        maxTsServerMemory = 8096,
+      },
+    },
     eslint = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "javascript", "typescript" },
       settings = {
