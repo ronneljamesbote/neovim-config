@@ -6,8 +6,8 @@ return {
   keys = {
     {
       "<leader>cl",
-      "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Diagnostics (Trouble)",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      desc = "Diagnostics Buffer (Trouble)",
     },
     {
       "<leader>cs",
