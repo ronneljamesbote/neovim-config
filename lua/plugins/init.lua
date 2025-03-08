@@ -82,17 +82,22 @@ return {
   },
 
   {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot-cmp" },
-    config = require("configs.copilot").config,
+    "github/copilot.vim",
+    lazy = false,
   },
 
-  {
-    "zbirenbaum/copilot-cmp",
-    config = require("configs.copilot-cmp").config,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   -- dependencies = { "zbirenbaum/copilot-cmp" },
+  --   -- config = require("configs.copilot").config,
+  -- },
+
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = require("configs.copilot-cmp").config,
+  -- },
 
   -- Override Nvchad default plugin configs
   {

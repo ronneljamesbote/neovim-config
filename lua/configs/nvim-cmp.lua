@@ -35,7 +35,7 @@ return {
   config = function(_, opts)
     local cmp = require "cmp"
 
-    opts.sources = cmp.config.sources(getModifiedSources(opts.sources))
+    -- opts.sources = cmp.config.sources(getModifiedSources(opts.sources))
     opts.mapping = getModifiedMappings(opts.mapping)
 
     cmp.setup(opts)
