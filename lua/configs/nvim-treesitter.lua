@@ -35,8 +35,6 @@ local ensure_installed = {
     "yaml",
     "markdown",
     "markdown_inline",
-    "norg",
-    "norg_meta",
   },
 }
 
