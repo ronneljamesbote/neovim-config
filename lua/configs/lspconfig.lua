@@ -43,10 +43,14 @@ local server_configs = {
   },
 
   javascript = {
-    ts_ls = {
-      init_options = {
-        maxTsServerMemory = 8096,
-      },
+    -- ts_ls = {
+    --   root_dir = util.root_pattern ".git",
+    --   init_options = {
+    --     maxTsServerMemory = 8096,
+    --   },
+    -- },
+    vtsls = {
+      root_dir = util.root_pattern ".git",
     },
     eslint = {
       root_dir = util.root_pattern ".git",

@@ -1,4 +1,4 @@
-local blacklisted = { "ts_ls", "cssls", "html" }
+local blacklisted = { "vtsls", "ts_ls", "cssls", "html" }
 
 local format_file = function()
   vim.lsp.buf.format {
