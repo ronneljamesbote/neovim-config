@@ -104,4 +104,6 @@ return {
     "hrsh7th/nvim-cmp",
     config = require("configs.nvim-cmp").config,
   },
+
+  { import = "nvchad.blink.lazyspec" },
 }
