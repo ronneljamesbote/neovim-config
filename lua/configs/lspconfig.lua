@@ -11,9 +11,9 @@ local server_configs = {
     html = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "templ" },
     },
-    emmet_ls = {
-      filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
-    },
+    -- emmet_ls = {
+    --   filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
+    -- },
     tailwindcss = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
       init_options = { userLanguages = { templ = "html" } },
@@ -109,6 +109,10 @@ local server_configs = {
         on_attach(client, bufnr)
       end,
     },
+  },
+
+  ruby = {
+    ruby_lsp = {},
   },
 
   extra = {
