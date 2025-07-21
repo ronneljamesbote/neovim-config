@@ -5,6 +5,7 @@ local nomap = vim.keymap.del
 
 nomap("n", "<leader>fm")
 nomap("n", "<tab>")
+nomap("n", "<C-n>")
 
 local format_file = require "helpers.format_file"
 
@@ -19,6 +20,8 @@ map("n", "<leader>fq", function()
   require("telescope.builtin").live_grep { additional_args = { "-u" } }
 end, { desc = "Live grep hidden files" })
 map("n", "<leader>fm", format_file, { desc = "LSP formatting" })
+map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
 
 -- TmuxVim navigation
 
