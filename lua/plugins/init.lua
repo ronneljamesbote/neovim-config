@@ -100,10 +100,42 @@ return {
   -- },
 
   -- Override Nvchad default plugin configs
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   config = require("configs.nvim-cmp").config,
+  -- },
+
+  -- Reference: https://github.com/NvChad/ui/blob/dc4950f5bd4117e2da108b681506c908b93d4a62/lua/nvchad/blink/lazyspec.lua
   {
     "hrsh7th/nvim-cmp",
-    config = require("configs.nvim-cmp").config,
+    enabled = false,
   },
 
-  { import = "nvchad.blink.lazyspec" },
+  {
+    "saghen/blink.cmp",
+    version = "1.*",
+    event = { "InsertEnter", "CmdLineEnter" },
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+      {
+        -- snippet plugin
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        config = function(_, opts)
+          require("luasnip").config.set_config(opts)
+          require "nvchad.configs.luasnip"
+        end,
+      },
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          fast_wrap = {},
+          disable_filetype = { "TelescopePrompt", "vim" },
+        },
+      },
+    },
+    opts_extend = { "sources.default" },
+    opts = require("configs.blink").opts,
+  },
 }
