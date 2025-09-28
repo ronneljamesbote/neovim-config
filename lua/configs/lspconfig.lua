@@ -2,8 +2,6 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-
 local util = require "lspconfig/util"
 
 local server_configs = {
@@ -11,9 +9,6 @@ local server_configs = {
     html = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "templ" },
     },
-    -- emmet_ls = {
-    --   filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
-    -- },
     tailwindcss = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
       init_options = { userLanguages = { templ = "html" } },
@@ -43,23 +38,15 @@ local server_configs = {
   },
 
   javascript = {
-    -- ts_ls = {
-    --   root_dir = util.root_pattern ".git",
-    --   init_options = {
-    --     maxTsServerMemory = 8096,
-    --   },
-    -- },
-    vtsls = {
-      root_dir = util.root_pattern ".git",
-    },
+    vtsls = {},
     eslint = {
-      root_dir = util.root_pattern ".git",
       filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "javascript", "typescript" },
       settings = {
         codeActionOnSave = {
           enable = true,
           mode = "all",
         },
+        workingDirectory = { mode = "location", path = "." },
       },
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = true
@@ -120,26 +107,14 @@ local server_configs = {
   },
 }
 
-local configure = function(opts)
-  opts.on_init = on_init
-  opts.capabilities = capabilities
-
-  if opts.on_attach == nil then
-    opts.on_attach = on_attach
-  end
-
-  return opts
-end
-
 return {
   config = function()
     require("nvchad.configs.lspconfig").defaults()
 
     for _, language in pairs(server_configs) do
       for name, server in pairs(language) do
-        local config = configure(server)
-
-        lspconfig[name].setup(config)
+        vim.lsp.config(name, server)
+        vim.lsp.enable(name)
       end
     end
   end,
