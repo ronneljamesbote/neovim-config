@@ -40,7 +40,6 @@ M.mason = {
       -- LSP
       "css-lsp",
       "html-lsp",
-      "emmet-ls",
       "tailwindcss-language-server",
 
       -- Formatters
@@ -68,7 +67,7 @@ M.mason = {
 
     javascript = {
       -- LSP
-      "typescript-language-server",
+      "vtsls",
 
       -- Linters
       "eslint-lsp",
