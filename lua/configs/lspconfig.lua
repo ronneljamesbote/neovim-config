@@ -113,6 +113,11 @@ return {
 
     for _, language in pairs(server_configs) do
       for name, server in pairs(language) do
+        -- Set default values if not already provided
+        server.on_attach = server.on_attach or on_attach
+        server.on_init = server.on_init or on_init
+        server.capabilities = server.capabilities or capabilities
+
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
