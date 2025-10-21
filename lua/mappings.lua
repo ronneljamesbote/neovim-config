@@ -32,7 +32,7 @@ map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
 
 -- Copilot accept suggestion with Ctrl+J
-map("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+map("i", "<C-L>", 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
 })
