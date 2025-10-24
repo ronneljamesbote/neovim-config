@@ -9,7 +9,7 @@ nomap("n", "<tab>")
 nomap("n", "<C-n>")
 nomap("i", "<C-J>")
 
-local format_file = require "helpers.format_file"
+-- local format_file = require "helpers.format_file"
 
 -- Command mode with ;
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -23,7 +23,9 @@ map("n", "<leader>fq", function()
 end, { desc = "Live grep hidden files" })
 
 -- LSP formatting
-map("n", "<leader>fm", format_file, { desc = "LSP formatting" })
+map("n", "<leader>fm", function()
+  require("conform").format()
+end, { desc = "LSP formatting" })
 
 -- Open NvimTree
 map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })

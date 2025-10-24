@@ -4,16 +4,23 @@ return {
     opts = require("configs.mason").opts,
   },
 
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   event = "VeryLazy",
+  --   config = require("configs.null-ls").config,
+  -- },
+
   {
-    "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
-    config = require("configs.null-ls").config,
+    "stevearc/conform.nvim",
+    lazy = false,
+    config = require("configs.conform").config,
   },
 
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "nvimtools/none-ls.nvim",
+      -- "nvimtools/none-ls.nvim",
+      "stevearc/conform.nvim",
     },
     config = require("configs.lspconfig").config,
   },
@@ -22,7 +29,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = require("configs.nvim-treesitter").opts,
     lazy = false,
-    commit = "24ddf60d68daa921d4e909d2b6c5b03ef6bce8ce",
+    -- commit = "24ddf60d68daa921d4e909d2b6c5b03ef6bce8ce",
   },
 
   {
@@ -32,7 +39,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = require("configs.nvim-treesitter-textobjects").config,
-    commit = "ced6375723b20616282f9f6a1018a63ae19b106a",
+    -- commit = "ced6375723b20616282f9f6a1018a63ae19b106a",
   },
 
   {
