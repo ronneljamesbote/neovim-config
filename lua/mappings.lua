@@ -34,11 +34,11 @@ map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
 
 -- Copilot accept suggestion with Ctrl+J
-map("i", "<C-L>", 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false,
-})
-vim.g.copilot_no_tab_map = true
+-- map("i", "<C-L>", 'copilot#Accept("\\<CR>")', {
+--   expr = true,
+--   replace_keycodes = false,
+-- })
+-- vim.g.copilot_no_tab_map = true
 
 -- TmuxVim navigation
 map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "TmuxNavigate move to window left" })
