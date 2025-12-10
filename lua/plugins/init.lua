@@ -88,10 +88,10 @@ return {
     config = require("configs.harpoon").config,
   },
 
-  -- {
-  --   "github/copilot.vim",
-  --   lazy = false,
-  -- },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
 
   -- {
   --   "zbirenbaum/copilot.lua",
