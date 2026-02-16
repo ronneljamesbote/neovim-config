@@ -15,5 +15,12 @@ return {
         },
       },
     },
+    filesystem_watchers = {
+      enable = true,
+      ignore_dirs = {
+        "node_modules",
+        "packages/web/.next",
+      },
+    },
   },
 }
