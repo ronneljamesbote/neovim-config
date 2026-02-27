@@ -1,5 +1,10 @@
 return {
   defaults = { lazy = true },
+
+  rocks = {
+    enabled = false,
+  },
+
   install = { colorscheme = { "nvchad" } },
 
   ui = {
