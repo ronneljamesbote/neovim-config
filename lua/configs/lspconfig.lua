@@ -102,6 +102,10 @@ local server_configs = {
     ruby_lsp = {},
   },
 
+  elixir = {
+    expert = {},
+  },
+
   extra = {
     marksman = {},
   },

@@ -20,6 +20,9 @@ local ensure_installed = {
     "java",
     "rust",
     "sql",
+    "elixir",
+    "eex",
+    "heex",
   },
 
   templates = {

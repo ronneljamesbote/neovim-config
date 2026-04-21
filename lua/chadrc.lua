@@ -97,6 +97,11 @@ M.mason = {
       "mypy",
     },
 
+    elixir = {
+      -- LSP
+      "expert",
+    },
+
     extra = {
       "marksman",
     },
