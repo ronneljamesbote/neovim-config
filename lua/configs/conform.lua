@@ -12,6 +12,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black" },
+        cpp = { "clang-format" },
         -- php = { "pint" },
         go = { "gofumpt", "goimports_reviser" },
         javascript = { "prettier" },

@@ -106,6 +106,10 @@ local server_configs = {
     expert = {},
   },
 
+  cpp = {
+    clangd = {},
+  },
+
   extra = {
     marksman = {},
   },

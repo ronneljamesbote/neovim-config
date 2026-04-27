@@ -10,6 +10,7 @@ local ensure_installed = {
 
   languages = {
     "c",
+    "cpp",
     "vim",
     "lua",
     "php",

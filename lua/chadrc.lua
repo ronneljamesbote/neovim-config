@@ -102,6 +102,14 @@ M.mason = {
       "expert",
     },
 
+    cpp = {
+      -- LSP
+      "clangd",
+
+      -- Formatters
+      "clang-format",
+    },
+
     extra = {
       "marksman",
     },
