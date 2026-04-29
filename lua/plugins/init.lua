@@ -4,12 +4,6 @@ return {
     opts = require("configs.mason").opts,
   },
 
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   event = "VeryLazy",
-  --   config = require("configs.null-ls").config,
-  -- },
-
   {
     "stevearc/conform.nvim",
     lazy = false,
@@ -19,7 +13,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- "nvimtools/none-ls.nvim",
       "stevearc/conform.nvim",
     },
     config = require("configs.lspconfig").config,
@@ -29,7 +22,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = require("configs.nvim-treesitter").opts,
     lazy = false,
-    -- commit = "24ddf60d68daa921d4e909d2b6c5b03ef6bce8ce",
   },
 
   {
@@ -39,7 +31,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = require("configs.nvim-treesitter-textobjects").config,
-    -- commit = "ced6375723b20616282f9f6a1018a63ae19b106a",
   },
 
   {
@@ -92,25 +83,6 @@ return {
     "github/copilot.vim",
     lazy = false,
   },
-
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   cmd = "Copilot",
-  --   event = "InsertEnter",
-  --   -- dependencies = { "zbirenbaum/copilot-cmp" },
-  --   -- config = require("configs.copilot").config,
-  -- },
-
-  -- {
-  --   "zbirenbaum/copilot-cmp",
-  --   config = require("configs.copilot-cmp").config,
-  -- },
-
-  -- Override Nvchad default plugin configs
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   config = require("configs.nvim-cmp").config,
-  -- },
 
   -- Reference: https://github.com/NvChad/ui/blob/dc4950f5bd4117e2da108b681506c908b93d4a62/lua/nvchad/blink/lazyspec.lua
   {
