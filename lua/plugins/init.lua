@@ -117,4 +117,11 @@ return {
     opts_extend = { "sources.default" },
     opts = require("configs.blink").opts,
   },
+
+  {
+    "nickjvandyke/opencode.nvim",
+    version = "*", -- Latest stable release
+    keys = require("configs.opencode").keys,
+    config = require("configs.opencode").config,
+  },
 }
