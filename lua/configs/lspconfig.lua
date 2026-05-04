@@ -107,7 +107,13 @@ local server_configs = {
   },
 
   cpp = {
-    clangd = {},
+    clangd = {
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--query-driver=/usr/bin/g++,/usr/bin/gcc",
+      },
+    },
   },
 
   extra = {
