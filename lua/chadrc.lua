@@ -110,6 +110,11 @@ M.mason = {
       "clang-format",
     },
 
+    odin = {
+      -- LSP
+      "ols",
+    },
+
     extra = {
       "marksman",
     },

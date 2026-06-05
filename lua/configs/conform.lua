@@ -24,6 +24,7 @@ return {
         scss = { "prettier" },
         json = { "prettier" },
         markdown = { "prettier" },
+        odin = { "odinfmt" },
         elixir = { "mix" },
       },
     }

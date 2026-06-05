@@ -116,6 +116,10 @@ local server_configs = {
     },
   },
 
+  odin = {
+    ols = {},
+  },
+
   extra = {
     marksman = {},
   },

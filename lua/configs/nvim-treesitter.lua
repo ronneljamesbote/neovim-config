@@ -24,6 +24,7 @@ local ensure_installed = {
     "elixir",
     "eex",
     "heex",
+    "odin",
   },
 
   templates = {
