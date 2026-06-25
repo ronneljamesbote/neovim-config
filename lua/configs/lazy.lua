@@ -3,7 +3,9 @@ return {
   install = { colorscheme = { "nvchad" } },
 
   rocks = {
-    enabled = false,
+    -- install [luarocks](https://github.com/luarocks/luarocks) on your machine
+    -- do not install packages globally, only install packages with `--local` flag
+    enabled = true,
   },
 
   ui = {

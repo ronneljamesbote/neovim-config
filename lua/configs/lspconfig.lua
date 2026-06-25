@@ -9,11 +9,10 @@ local util = require "lspconfig/util"
 local server_configs = {
   web = {
     html = {
-      filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "templ" },
+      filetypes = { "html", "javascriptreact", "typescriptreact", "vue" },
     },
     tailwindcss = {
-      filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "templ" },
-      init_options = { userLanguages = { templ = "html" } },
+      filetypes = { "html", "javascriptreact", "typescriptreact", "vue" },
     },
     cssls = {
       settings = {
@@ -60,10 +59,9 @@ local server_configs = {
   },
 
   go = {
-    templ = {},
-    gopls = {
+    gwpls = {
       cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      filetypes = { "go", "gomod", "gowork" },
       root_dir = util.root_pattern("go.work", "go.mod", ".git"),
       settings = {
         gopls = {
@@ -104,10 +102,6 @@ local server_configs = {
     ruby_lsp = {},
   },
 
-  elixir = {
-    expert = {},
-  },
-
   cpp = {
     clangd = {
       cmd = {
@@ -123,10 +117,11 @@ local server_configs = {
   },
 
   extra = {
-    marksman = {},
+    marksman = {
+      filetypes = { "markdown" },
+    },
   },
 }
-
 
 for _, language in pairs(server_configs) do
   for name, server in pairs(language) do

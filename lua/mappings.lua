@@ -8,6 +8,7 @@ nomap("n", "<leader>fm")
 nomap("n", "<tab>")
 nomap("n", "<C-n>")
 nomap("i", "<C-J>")
+nomap("n", "gcc")
 
 -- local format_file = require "helpers.format_file"
 
