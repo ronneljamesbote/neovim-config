@@ -1,3 +1,5 @@
+require("nvchad.configs.lspconfig").defaults()
+
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
@@ -125,20 +127,15 @@ local server_configs = {
   },
 }
 
-return {
-  config = function()
-    require("nvchad.configs.lspconfig").defaults()
 
-    for _, language in pairs(server_configs) do
-      for name, server in pairs(language) do
-        -- Set default values if not already provided
-        server.on_attach = server.on_attach or on_attach
-        server.on_init = server.on_init or on_init
-        server.capabilities = server.capabilities or capabilities
+for _, language in pairs(server_configs) do
+  for name, server in pairs(language) do
+    -- Set default values if not already provided
+    server.on_attach = server.on_attach or on_attach
+    server.on_init = server.on_init or on_init
+    server.capabilities = server.capabilities or capabilities
 
-        vim.lsp.config(name, server)
-        vim.lsp.enable(name)
-      end
-    end
-  end,
-}
+    vim.lsp.config(name, server)
+    vim.lsp.enable(name)
+  end
+end

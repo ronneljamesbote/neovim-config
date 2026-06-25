@@ -36,28 +36,31 @@ local ensure_installed = {
   },
 }
 
-return {
-  opts = function()
-    local required_parsers = flatten_tables(ensure_installed)
+local required_parsers = flatten_tables(ensure_installed)
 
-    -- Simply run the installation; the new main branch skips it if already valid
-    -- Or use the clean Neovim core function to safely look for the language parser
-    for _, lang in ipairs(required_parsers) do
-      local has_parser = pcall(vim.treesitter.language.add, lang)
-      if not has_parser then
-        vim.cmd("TSInstall " .. lang)
-      end
+local config = function()
+  -- Simply run the installation; the new main branch skips it if already valid
+  -- Or use the clean Neovim core function to safely look for the language parser
+  for _, lang in ipairs(required_parsers) do
+    local has_parser = pcall(vim.treesitter.language.add, lang)
+    if not has_parser then
+      vim.cmd("TSInstall " .. lang)
     end
+  end
+end
 
-    return {
-      ensure_installed = required_parsers,
+local options = {
+  ensure_installed = required_parsers,
 
-      highlight = {
-        enable = true,
-        use_languagetree = true,
-      },
+  highlight = {
+    enable = true,
+    use_languagetree = true,
+  },
 
-      indent = { enable = true },
-    }
-  end,
+  indent = { enable = true },
+}
+
+return {
+  options = options,
+  config = config,
 }

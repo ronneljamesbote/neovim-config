@@ -1,63 +1,48 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = require("configs.mason").opts,
-  },
-
-  {
     "stevearc/conform.nvim",
-    lazy = false,
-    config = require("configs.conform").config,
+    opts = require "configs.conform",
   },
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "stevearc/conform.nvim",
-    },
-    opts = require("configs.lspconfig").opts,
+    config = function()
+      require "configs.lspconfig"
+    end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("configs.nvim-treesitter").opts,
-    lazy = false,
+    opts = require("configs.nvim-treesitter").options,
+    config = function()
+      require("configs.nvim-treesitter").config()
+    end,
+  },
+
+  {
+    "nvim-tree/nvim-web-devicons",
   },
 
   {
     "nvim-tree/nvim-tree.lua",
-    opts = require("configs.nvim-tree").opts,
-  },
-
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = require("configs.better-escape").config,
+    opts = require "configs.nvim-tree",
   },
 
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
-
   {
     "mbbill/undotree",
-    lazy = false,
-    config = require("configs.undotree").config,
-  },
-
-  {
-    "nvim-tree/nvim-web-devicons",
-    config = true,
+    config = require "configs.undotree",
   },
 
   {
     "folke/trouble.nvim",
-    lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    opts = require("configs.trouble").opts,
+    opts = require("configs.trouble").options,
     cmd = require("configs.trouble").cmd,
     keys = require("configs.trouble").keys,
   },
@@ -65,49 +50,8 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = require("configs.harpoon").config,
-  },
-
-  {
-    "github/copilot.vim",
-    lazy = false,
-    enabled = false,
-  },
-
-  -- Reference: https://github.com/NvChad/ui/blob/dc4950f5bd4117e2da108b681506c908b93d4a62/lua/nvchad/blink/lazyspec.lua
-  {
-    "hrsh7th/nvim-cmp",
-    enabled = false,
-  },
-
-  {
-    "saghen/blink.cmp",
-    version = "1.*",
-    event = { "InsertEnter", "CmdLineEnter" },
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-        config = function(_, opts)
-          require("luasnip").config.set_config(opts)
-          require "nvchad.configs.luasnip"
-        end,
-      },
-      {
-        "windwp/nvim-autopairs",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-      },
-    },
-    opts_extend = { "sources.default" },
-    opts = require("configs.blink").opts,
+    config = require "configs.harpoon",
   },
 
   {
@@ -116,4 +60,42 @@ return {
     keys = require("configs.opencode").keys,
     config = require("configs.opencode").config,
   },
+
+  {
+    import = "nvchad.blink.lazyspec",
+  },
+
+  {
+    "github/copilot.vim",
+    enabled = false,
+  },
+
+  -- Reference: https://github.com/NvChad/ui/blob/dc4950f5bd4117e2da108b681506c908b93d4a62/lua/nvchad/blink/lazyspec.lua
+  -- {
+  --   "saghen/blink.cmp",
+  --   version = "1.*",
+  --   event = { "InsertEnter", "CmdLineEnter" },
+  --   dependencies = {
+  --     "rafamadriz/friendly-snippets",
+  --     {
+  --       -- snippet plugin
+  --       "L3MON4D3/LuaSnip",
+  --       dependencies = "rafamadriz/friendly-snippets",
+  --       opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+  --       config = function(_, opts)
+  --         require("luasnip").config.set_config(opts)
+  --         require "nvchad.configs.luasnip"
+  --       end,
+  --     },
+  --     {
+  --       "windwp/nvim-autopairs",
+  --       opts = {
+  --         fast_wrap = {},
+  --         disable_filetype = { "TelescopePrompt", "vim" },
+  --       },
+  --     },
+  --   },
+  --   opts_extend = { "sources.default" },
+  --   opts = require("configs.blink").opts,
+  -- },
 }
