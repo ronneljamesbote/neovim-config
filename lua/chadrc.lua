@@ -17,17 +17,15 @@ M.ui = {
   },
   statusline = {
     theme = "vscode_colored",
+    modules = {
+      file = statusline_fullfileinfo,
+    },
   },
 }
 
 M.base46 = {
   theme = "onedark",
   transparency = true,
-  statusline = {
-    modules = {
-      file = statusline_fullfileinfo,
-    },
-  },
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
@@ -80,9 +78,6 @@ M.mason = {
       -- Formatters
       "gofumpt",
       "goimports-reviser",
-
-      -- Templating
-      "templ",
     },
 
     python = {
@@ -95,11 +90,6 @@ M.mason = {
 
       -- Linters
       "mypy",
-    },
-
-    elixir = {
-      -- LSP
-      "expert",
     },
 
     cpp = {

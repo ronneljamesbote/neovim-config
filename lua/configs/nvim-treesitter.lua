@@ -19,18 +19,11 @@ local ensure_installed = {
     "python",
     "go",
     "java",
-    "rust",
     "sql",
-    "elixir",
-    "eex",
-    "heex",
     "odin",
   },
 
   templates = {
-    "blade",
-    "twig",
-    "templ",
     "tsx",
     "vue",
   },
@@ -45,19 +38,19 @@ local ensure_installed = {
 
 return {
   opts = function()
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    local required_parsers = flatten_tables(ensure_installed)
 
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-      filetype = "blade",
-    }
+    -- Simply run the installation; the new main branch skips it if already valid
+    -- Or use the clean Neovim core function to safely look for the language parser
+    for _, lang in ipairs(required_parsers) do
+      local has_parser = pcall(vim.treesitter.language.add, lang)
+      if not has_parser then
+        vim.cmd("TSInstall " .. lang)
+      end
+    end
 
     return {
-      ensure_installed = flatten_tables(ensure_installed),
+      ensure_installed = required_parsers,
 
       highlight = {
         enable = true,

@@ -15,22 +15,13 @@ return {
     dependencies = {
       "stevearc/conform.nvim",
     },
-    config = require("configs.lspconfig").config,
+    opts = require("configs.lspconfig").opts,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
     opts = require("configs.nvim-treesitter").opts,
     lazy = false,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    lazy = false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = require("configs.nvim-treesitter-textobjects").config,
   },
 
   {

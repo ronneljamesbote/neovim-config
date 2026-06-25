@@ -13,8 +13,8 @@ return {
         lua = { "stylua" },
         python = { "black" },
         cpp = { "clang-format" },
-        -- php = { "pint" },
-        go = { "gofumpt", "goimports_reviser" },
+        php = { "pint" },
+        go = { "gofumpt", "goimports-reviser" },
         javascript = { "prettier" },
         typescript = { "prettier" },
         javascriptreact = { "prettier" },
@@ -25,7 +25,6 @@ return {
         json = { "prettier" },
         markdown = { "prettier" },
         odin = { "odinfmt" },
-        elixir = { "mix" },
       },
     }
   end,
