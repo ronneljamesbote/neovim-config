@@ -39,9 +39,10 @@ local server_configs = {
   },
 
   javascript = {
-    vtsls = {},
+    -- vtsls = {},
+    tsgo = {},
     eslint = {
-      filetypes = { "html", "javascriptreact", "typescriptreact", "vue", "blade", "javascript", "typescript" },
+      filetypes = { "html", "javascriptreact", "typescriptreact", "javascript", "typescript" },
       settings = {
         codeActionOnSave = {
           enable = true,
