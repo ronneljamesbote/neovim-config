@@ -13,3 +13,12 @@ vim.opt.foldenable = false
 vim.opt.number = true
 
 vim.opt.relativenumber = true
+
+vim.filetype.add {
+  extension = {
+    script = "lua",
+    gui_script = "lua",
+    render_script = "lua",
+    editor_script = "lua",
+  },
+}

@@ -50,6 +50,20 @@ return {
   },
 
   {
+    "folke/lazydev.nvim",
+    ft = {
+      "lua",
+    },
+    opts = {
+      library = {
+        {
+          path = "~/Projects/personal/games/tools/defold-annotations/tmp/defold_api/",
+        },
+      },
+    },
+  },
+
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
