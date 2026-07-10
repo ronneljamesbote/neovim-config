@@ -33,6 +33,7 @@ return {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
+
   {
     "mbbill/undotree",
     config = require "configs.undotree",
