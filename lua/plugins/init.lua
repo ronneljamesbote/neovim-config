@@ -57,13 +57,6 @@ return {
   },
 
   {
-    "nickjvandyke/opencode.nvim",
-    version = "*", -- Latest stable release
-    keys = require("configs.opencode").keys,
-    config = require("configs.opencode").config,
-  },
-
-  {
     import = "nvchad.blink.lazyspec",
   },
 
