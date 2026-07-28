@@ -13,7 +13,7 @@ M.lsp = {
 
 M.ui = {
   tabufline = {
-    order = { "treeOffset" },
+    order = { "buffers", "tabs", "btns" }, -- "treeOffset" is omitted
   },
   statusline = {
     theme = "vscode_colored",
