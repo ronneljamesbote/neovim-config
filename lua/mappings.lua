@@ -51,6 +51,14 @@ nomap("n", "<C-n>")
 nomap("i", "<C-J>")
 nomap("n", "gcc")
 
+-- Remove default telescope oldfiles mapping to override with project-scoped version
+nomap("n", "<leader>fo")
+
+map("n", "<leader>fo", function()
+  local root = require("helpers.project_root").get()
+  require("telescope.builtin").oldfiles { cwd = root }
+end, { desc = "Recent files for project root" })
+
 -- local format_file = require "helpers.format_file"
 
 -- Command mode with ;
