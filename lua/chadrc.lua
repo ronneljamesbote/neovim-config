@@ -14,6 +14,7 @@ M.lsp = {
 M.ui = {
   tabufline = {
     order = { "buffers", "tabs", "btns" }, -- "treeOffset" is omitted
+    modules = require "configs.tabufline",
   },
   statusline = {
     theme = "vscode_colored",

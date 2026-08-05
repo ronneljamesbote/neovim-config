@@ -1,5 +1,7 @@
 require "nvchad.autocmds"
 
+require("configs.tabufline").setup()
+
 local function use_treesitter_folds(win)
   vim.wo[win].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 end
