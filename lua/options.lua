@@ -6,10 +6,6 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.colorcolumn = "120"
 
-vim.opt.foldmethod = "manual"
-
-vim.opt.foldenable = false
-
 vim.opt.number = true
 
 vim.opt.relativenumber = true
@@ -22,3 +18,20 @@ vim.filetype.add {
     editor_script = "lua",
   },
 }
+
+vim.opt.foldmethod = "expr"
+
+vim.opt.foldcolumn = "1"
+
+vim.opt.fillchars = {
+  foldopen = "▼",
+  foldclose = "▶",
+  foldsep = " ",
+  fold = " ",
+}
+
+vim.opt.foldlevel = 99
+
+vim.opt.foldlevelstart = 99
+
+vim.opt.foldenable = true

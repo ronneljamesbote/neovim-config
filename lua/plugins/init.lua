@@ -79,6 +79,15 @@ return {
     enabled = false,
   },
 
+  {
+    "Bekaboo/dropbar.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
+    lazy = false,
+  },
+
   -- Reference: https://github.com/NvChad/ui/blob/dc4950f5bd4117e2da108b681506c908b93d4a62/lua/nvchad/blink/lazyspec.lua
   -- {
   --   "saghen/blink.cmp",
