@@ -66,8 +66,7 @@ M.mason = {
 
     javascript = {
       -- LSP
-      "vtsls",
-      "tsgo",
+      "tsc",
 
       -- Linters
       "eslint-lsp",

@@ -39,8 +39,7 @@ local server_configs = {
   },
 
   javascript = {
-    -- vtsls = {},
-    tsgo = {},
+    tsc = {},
     eslint = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "javascript", "typescript" },
       settings = {
