@@ -83,13 +83,6 @@ map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 -- LSP hover
 map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
 
--- Copilot accept suggestion with Ctrl+J
--- map("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
---   expr = true,
---   replace_keycodes = false,
--- })
--- vim.g.copilot_no_tab_map = true
-
 -- TmuxVim navigation
 map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "TmuxNavigate move to window left" })
 map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { desc = "TmuxNavigate move to window right" })
@@ -124,7 +117,11 @@ end)
 map("n", "<C-S-N>", function()
   harpoon:list():next()
 end)
+
 -- Git hunks popup (jump to hunk in current buffer)
 map("n", "<leader>gh", function()
   require("helpers.git_hunks").toggle()
 end, { desc = "Git hunks (current buffer)" })
+
+-- Overrides
+map("n", "<C-w>\\", "<C-w>=", { desc = "Equalize pane sizes" })
