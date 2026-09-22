@@ -2,12 +2,13 @@ local api = vim.api
 
 local M = {}
 
-local opts = nil
-local function options()
-  if not opts then
-    opts = require("nvconfig").ui.tabufline
-  end
-  return opts
+local utils = require "nvchad.tabufline.utils"
+
+local function new_hl(group1, group2)
+  local fg = vim.api.nvim_get_hl(0, { name = group1 }).fg
+  local bg = vim.api.nvim_get_hl(0, { name = "Tb" .. group2 }).bg
+  vim.api.nvim_set_hl(0, group1 .. group2, { fg = fg, bg = bg })
+  return "%#" .. group1 .. group2 .. "#"
 end
 
 local calculating_space = false
@@ -74,6 +75,57 @@ local function available_space()
   return ok and columns - status.width or columns
 end
 
+local function filename(str)
+  return str:match "([^/\\]+)[/\\]*$"
+end
+
+-- disambiguate duplicate basenames, same rule as nvchad's style_buf
+local function gen_unique_name(name, index)
+  for i2, nr2 in ipairs(vim.t.bufs) do
+    local filepath = filename(api.nvim_buf_get_name(nr2))
+    if index ~= i2 and filepath == name then
+      return vim.fn.fnamemodify(api.nvim_buf_get_name(vim.t.bufs[index]), ":h:t") .. "/" .. name
+    end
+  end
+end
+
+-- Render one buffer tab showing the full (untruncated) file name.
+-- Returns the tabline string and its display width in columns.
+local function style_buf(nr, i)
+  local is_curbuf = api.nvim_get_current_buf() == nr
+  local tbHlName = "BufO" .. (is_curbuf and "n" or "ff")
+
+  local name = filename(api.nvim_buf_get_name(nr))
+  name = name and (gen_unique_name(name, i) or name) or " No Name "
+
+  local icon, icon_hl = " 󰈚 ", new_hl("DevIconDefault", tbHlName)
+  if name ~= " No Name " then
+    local devicon, devicon_hl = require("nvim-web-devicons").get_icon(name)
+    if devicon then
+      icon, icon_hl = " " .. devicon .. " ", new_hl(devicon_hl, tbHlName)
+    end
+  end
+
+  -- tabline strings must escape literal % in file names
+  local escaped = name:gsub("%%", "%%%%")
+
+  local close_btn = utils.btn(" 󰅖 ", nil, "KillBuf", nr)
+
+  local mod = api.nvim_get_option_value("modified", { buf = nr })
+  if is_curbuf then
+    close_btn = mod and utils.txt("   ", "BufOnModified") or utils.txt(close_btn, "BufOnClose")
+  else
+    close_btn = mod and utils.txt("   ", "BufOffModified") or utils.txt(close_btn, "BufOffClose")
+  end
+
+  local str = " " .. icon_hl .. icon .. utils.txt(escaped, tbHlName) .. " " .. close_btn
+  str = utils.btn(str, nil, "GoToBuf", nr)
+
+  -- 1 lead space + 3 icon + name + 1 space + 3 close/modified slot
+  local width = 1 + 3 + vim.fn.strdisplaywidth(name) + 1 + 3
+  return str, width
+end
+
 function M.buffers()
   if calculating_space then
     return ""
@@ -89,28 +141,33 @@ function M.buffers()
     end
   end
 
-  local txt = require("nvchad.tabufline.utils").txt
-  local style_buf = require("nvchad.tabufline.utils").style_buf
-  local bufwidth = options().bufwidth
-
-  local buffers = {}
+  local buffers, widths = {}, {}
+  local total = 0
   local has_current = false
   local width = available_space()
 
   for _, buffer in ipairs(visible) do
-    if ((#buffers + 1) * bufwidth) > width then
+    local rendered, w = style_buf(buffer.bufnr, buffer.index)
+
+    if total + w > width then
       if has_current then
         break
       end
-
-      table.remove(buffers, 1)
+      -- drop oldest tabs from the front until it fits
+      while #buffers > 0 and total + w > width do
+        total = total - widths[1]
+        table.remove(widths, 1)
+        table.remove(buffers, 1)
+      end
     end
 
     has_current = current == buffer.bufnr or has_current
-    buffers[#buffers + 1] = style_buf(buffer.bufnr, buffer.index, bufwidth)
+    buffers[#buffers + 1] = rendered
+    widths[#widths + 1] = w
+    total = total + w
   end
 
-  return table.concat(buffers) .. txt("%=", "Fill")
+  return table.concat(buffers) .. utils.txt("%=", "Fill")
 end
 
 function M.setup()
