@@ -1,5 +1,7 @@
 local M = {}
 
+local telescope_layout = require "helpers.telescope_layout"
+
 local function first_changed_line(lines)
   local deleted_line
 
@@ -24,6 +26,8 @@ function M.toggle()
     return
   end
 
+  local bufname = vim.api.nvim_buf_get_name(0)
+
   table.sort(hunks, function(left, right)
     return left.added.start < right.added.start
   end)
@@ -38,40 +42,38 @@ function M.toggle()
         display = string.format("%s  L%d  %s", symbol, hunk.added.start, first_line:sub(1, 60)),
         ordinal = hunk.head .. " " .. first_line,
         lnum = hunk.added.start,
+        path = bufname,
       }
     end,
   }
 
   require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Git hunks (current buffer)",
-      finder = finder,
-      previewer = false,
-      sorter = require("telescope.config").values.generic_sorter {},
-      layout_config = {
-        height = 0.4,
-        width = 0.5,
-        prompt_position = "top",
-        preview_cutoff = 120,
-      },
-      attach_mappings = function(prompt_bufnr, map)
-        local jump = function()
-          local entry = require("telescope.actions.state").get_selected_entry()
+    .new(
+      {},
+      vim.tbl_extend("force", telescope_layout.vertical(), {
+        prompt_title = "Git hunks (current buffer)",
+        finder = finder,
+        previewer = require("telescope.previewers").vim_buffer_cat.new {},
+        sorter = require("telescope.config").values.generic_sorter {},
+        attach_mappings = function(prompt_bufnr, map)
+          local jump = function()
+            local entry = require("telescope.actions.state").get_selected_entry()
 
-          if not entry then
-            return
+            if not entry then
+              return
+            end
+
+            require("telescope.actions").close(prompt_bufnr)
+            vim.api.nvim_win_set_cursor(0, { entry.lnum, 0 })
+            vim.cmd "normal! zz"
           end
 
-          require("telescope.actions").close(prompt_bufnr)
-          vim.api.nvim_win_set_cursor(0, { entry.lnum, 0 })
-          vim.cmd "normal! zz"
-        end
-
-        map("i", "<CR>", jump)
-        map("n", "<CR>", jump)
-        return true
-      end,
-    })
+          map("i", "<CR>", jump)
+          map("n", "<CR>", jump)
+          return true
+        end,
+      })
+    )
     :find()
 end
 
