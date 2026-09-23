@@ -30,6 +30,11 @@ return {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    opts = require "configs.telescope",
+  },
+
+  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
