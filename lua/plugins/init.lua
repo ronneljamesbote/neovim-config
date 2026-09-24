@@ -14,9 +14,10 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("configs.nvim-treesitter").options,
+    opts = { ensure_installed = require("configs.nvim-treesitter").parsers },
     config = function()
-      require("configs.nvim-treesitter").config()
+      -- no-op when parsers are installed; installs new entries asynchronously
+      require("nvim-treesitter").install(require("configs.nvim-treesitter").parsers)
     end,
   },
 
@@ -41,6 +42,7 @@ return {
 
   {
     "mbbill/undotree",
+    cmd = "UndotreeToggle",
     config = require "configs.undotree",
   },
 

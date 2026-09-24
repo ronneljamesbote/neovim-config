@@ -4,8 +4,6 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local util = require "lspconfig/util"
-
 local server_configs = {
   web = {
     html = {
@@ -43,9 +41,11 @@ local server_configs = {
     eslint = {
       filetypes = { "html", "javascriptreact", "typescriptreact", "javascript", "typescript" },
       settings = {
-        codeActionOnSave = {
-          enable = true,
-          mode = "all",
+        codeAction = {
+          onSave = {
+            enable = true,
+            mode = "all",
+          },
         },
         workingDirectory = { mode = "location", path = "." },
       },
@@ -59,10 +59,8 @@ local server_configs = {
   },
 
   go = {
-    gwpls = {
-      cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork" },
-      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    gopls = {
+      root_markers = { "go.work", "go.mod", ".git" },
       settings = {
         gopls = {
           completeUnimported = true,

@@ -47,7 +47,6 @@ nomap("n", "<leader>fm")
 nomap("n", "<tab>")
 nomap("n", "<C-n>")
 nomap("i", "<C-J>")
-nomap("n", "gcc")
 
 -- Remove default telescope oldfiles mapping to override with project-scoped version
 nomap("n", "<leader>fo")
@@ -56,8 +55,6 @@ map("n", "<leader>fo", function()
   local root = require("helpers.project_root").get()
   require("telescope.builtin").oldfiles { cwd = root }
 end, { desc = "Recent files for project root" })
-
--- local format_file = require "helpers.format_file"
 
 -- Command mode with ;
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -80,7 +77,7 @@ map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
 -- LSP hover
 map("n", "gh", function()
-  vim.lsp.buf.hover { border = "single" }
+  vim.lsp.buf.hover()
 end, { desc = "LSP hover" })
 
 -- TmuxVim navigation
