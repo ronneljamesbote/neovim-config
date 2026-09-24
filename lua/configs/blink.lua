@@ -7,6 +7,9 @@ return {
     cmdline = { enabled = true },
     appearance = { nerd_font_variant = "normal" },
     fuzzy = { implementation = "prefer_rust" },
+    -- NOTE: merged over nvchad's config with vim.tbl_deep_extend("force") in lua/plugins/init.lua.
+    -- Lists merge index-wise: appending sources works, but to REMOVE a source (e.g. "path") you
+    -- must keep the full desired list here — shortening it leaves nvchad's trailing entries intact.
     sources = { default = { "lsp", "snippets", "buffer", "path" } },
 
     keymap = {
@@ -14,8 +17,6 @@ return {
       ["<CR>"] = { "accept", "fallback" },
       ["<C-b>"] = { "scroll_documentation_up", "fallback" },
       ["<C-f>"] = { "scroll_documentation_down", "fallback" },
-      -- ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-      -- ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     },
 
     completion = {
