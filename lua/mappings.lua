@@ -79,7 +79,9 @@ end, { desc = "LSP formatting" })
 map("n", "<C-b>", "<cmd> NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
 -- LSP hover
-map("n", "gh", vim.lsp.buf.hover, { desc = "LSP hover" })
+map("n", "gh", function()
+  vim.lsp.buf.hover { border = "single" }
+end, { desc = "LSP hover" })
 
 -- TmuxVim navigation
 map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { desc = "TmuxNavigate move to window left" })
