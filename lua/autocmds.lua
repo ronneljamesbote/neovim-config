@@ -1,6 +1,6 @@
 require "nvchad.autocmds"
 
-require("configs.tabufline").setup()
+-- require("configs.tabufline").setup()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
