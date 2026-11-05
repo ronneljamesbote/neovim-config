@@ -106,6 +106,11 @@ M.mason = {
       "ols",
     },
 
+    rust = {
+      -- LSP
+      "rust-analyzer",
+    },
+
     extra = {
       "marksman",
     },

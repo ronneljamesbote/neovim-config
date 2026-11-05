@@ -22,6 +22,7 @@ local options = {
     json = { "prettier" },
     markdown = { "prettier" },
     odin = { "odinfmt" },
+    rust = { "rustfmt" },
   },
 }
 

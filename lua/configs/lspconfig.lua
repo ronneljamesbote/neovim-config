@@ -114,6 +114,10 @@ local server_configs = {
     ols = {},
   },
 
+  rust = {
+    rust_analyzer = {},
+  },
+
   extra = {
     marksman = {
       filetypes = { "markdown" },

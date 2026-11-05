@@ -23,6 +23,7 @@ local ensure_installed = {
     "java",
     "sql",
     "odin",
+    "rust",
   },
 
   templates = {
